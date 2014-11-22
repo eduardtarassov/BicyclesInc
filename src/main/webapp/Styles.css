@@ -1,0 +1,116 @@
+/* 
+    Created on : Nov 09, 2014
+    Author     : Kaspars Greizis
+*/
+
+
+article{
+	margin-right:15%;
+	margin-left:19%;
+	margin-top:5%;
+	padding-left:3em;
+	max-width:80%;
+}
+
+article h1,h2,h3{
+	text-align:center;
+}
+
+article.profile a{
+	text-decoration:none;
+	color:#C1C0C0;
+}
+
+article.profile a:hover{
+	text-decoration:underline;
+	color:#040303;
+}
+
+
+article p{
+	//margin-left:10%;
+}
+
+div.update fieldset{
+	max-width:65%;
+}
+div.search {
+	position:absolute;
+	margin-left:75%;
+	right:5%;
+	top:5%;
+	color:#C1C0C0;
+}
+div ul li input{
+	float:right;
+}
+
+
+form ul li {
+	
+}
+
+div.dem th, td {
+	border: 3px solid black;
+	border-collapse: collapse;
+    left: 300px;
+    top: 150px;
+    padding: 1px;
+}
+#chart_div{
+	 top:1em;
+}
+
+div.search table td {
+	border:none;
+}
+body{
+    
+    background-color: #626262;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #040303;
+    margin:2%;
+    //min-height:640px;
+    height:100%;
+    //width:80%;
+}
+
+header h2{
+	margin-left:4.8%;
+	margin-top:5%;
+	color:#C1C0C0;
+}
+
+ul{
+    list-style-type: none;
+    position:relative;
+    border: 1px;
+    float: left;  
+}
+ul li{	
+    text-decoration: none;
+}
+
+ul.nav li {
+    background-color: #282828;
+    margin:0.5em;
+    margin-left:2%;
+    border: 0.04em solid #C1C0C0;
+    padding:0.2em;
+    width:8em;
+    text-align: center;
+    font-weight:bold;
+    font-size:1.6em;    
+    
+}
+ul.nav li a:link{
+    text-decoration: none;
+    color:#C1C0C0;
+}
+ul.nav li a:visited {
+    text-decoration: none;
+    color:#C1C0C0;
+}
+ul.nav li a:hover{
+    text-decoration: none;
+}
