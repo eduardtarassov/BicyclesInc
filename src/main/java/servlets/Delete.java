@@ -56,7 +56,7 @@ public class Delete extends HttpServlet {
 		try {
 			conn = dataSource.getConnection();
 			dModel = new DeleteModel();
-
+System.out.println("lol");
 			dModel.setConnection(this.conn);
 			// displayProfile(username, request, response);
 		delete(table, strRequestParams, request, response);

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <%@ page language="java" import="java.sql.*" errorPage=""%>
 
-<html>
+<html>//
 <head>
 <title>BicyclesInc - All Materials in the Store room</title>
 </head>
