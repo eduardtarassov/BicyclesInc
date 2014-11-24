@@ -64,15 +64,12 @@ div.dem th, td {
 div.search table td {
 	border:none;
 }
-body{
-    
+body{    
     background-color: #626262;
     font-family: Arial, Helvetica, sans-serif;
     color: #040303;
     margin:2%;
-    //min-height:640px;
     height:100%;
-    //width:80%;
 }
 
 header h2{

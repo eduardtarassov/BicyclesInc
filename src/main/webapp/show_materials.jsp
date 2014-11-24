@@ -5,11 +5,42 @@
 <!DOCTYPE html>
 <%@ page language="java" import="java.sql.*" errorPage=""%>
 
-<html>//
+<html>
 <head>
 <title>BicyclesInc - All Materials in the Store room</title>
+<link rel="stylesheet" type="text/css" href="shop-styles.css" />
 </head>
 <body>
+<nav>
+			<ul class="nav">
+			<li><a href='index.jsp'>Home</a></li>
+				<%
+					LoginState lg = (LoginState) session.getAttribute("LoggedIn");
+					if (lg == null) {
+						
+					} else {
+						if (lg.getAccess() == 0) {
+				%>
+				<li><a href="add_stock_item.jsp">Add item</a></li>
+				<li><a href="delete_stock_item.jsp">Delete item</a></li>
+				<%
+					} else {
+				%>
+				<li><a href="/BicyclesInc/profile/<%=lg.getUsername()%>">Profile</a></li>
+				<%
+					}
+				%>
+				<li class='active '><a href='search_products'><span>Shop Home</span></a></li>
+				
+				<%
+					}
+				%>
+
+				</ul>
+			</nav>
+
+
+<article>
 	<div align="center">
 		<h1>BicyclesInc - All Materials in the Store room</h1>
 		<table width="700px" align="center" style="border: 1px solid #000000;">
@@ -64,9 +95,8 @@
 
 
 	</div>
-
+</article>
 	<footer>
-		<li><a href='index.jsp'><span>Home</span></a></li>
 	</footer>
 </body>
 </html>

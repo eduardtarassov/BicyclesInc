@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.LinkedList"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="containers.Product"%>
+<%@page import="containers.*"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,8 +10,36 @@
         <title>Add Product</title>
     </head>
     <body>
+    	<%LoginState lg = (LoginState) session.getAttribute("LoggedIn");%>
+    	<nav>
+	<ul class="nav">	
+		<li><a href="index.jsp">Home</a></li>
+		<%                        
+             if ((lg == null) || (lg.getLoginState() == false)) {
+         %>
+         <li><a href="register.jsp">Register</a></li>
+	     <li><a href="login.jsp">Login</a></li>
+         <%}else{ 
+         if ((lg.getAccess() == 1) || (lg.getAccess() == 0)){ %>
+         <li><a href="register_by_admin.jsp">Register Staff</a></li>
+         <li><a href="add_material.jsp">Add Material</a></li>  
+         <li><a href="/BicyclesInc/AddProduct">Add Product</a>  
+         <li><a href="/BicyclesInc/show_materials">Check Materials</a></li>
+         <li><a href="region.jsp">Demographics</a></li>
+	     <%}
+         else{%>
+         <li><a href="/BicyclesInc/profile/<%=lg.getUsername()%>">Profile</a></li>    
+	     <%}%>
+	     <li><a href="/BicyclesInc/show_stock_items">Online Shop</a></li>
+	     <li><a href="/BicyclesInc/logout">Logout</a></li>
+        <% } %>
+	
+	</ul>
+</nav>
+    <article>
         <h1>Add Product</h1>
 		<form action="AddProduct" method="post">
+		<ul>
 			<input id="bicycle" name="productType" type="radio" value="bike" checked>Bicycle
 			<input id="part" name="productType" type="radio" value="part">Part
 			<br>Name
@@ -84,7 +112,9 @@
 				<input id="removeLastMaterial" type="button" name="removeLastMaterial" value="Remove Last Material">
 			</div>
 			<input type="submit" value="Submit">
+			</ul>
 		</form>
 		<script src="addProduct.js"></script>
+		</article>
     </body>
 </html>

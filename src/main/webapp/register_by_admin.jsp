@@ -4,6 +4,8 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="containers.*" %>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,7 +17,7 @@
 <header>
     <h2>BicyclesInc - Register Staff</h2>
 </header>
-
+<%LoginState lg = (LoginState) session.getAttribute("LoggedIn");%>
 <div class="search">
     <form method="POST" action="search">
         <table border="0" width="300">           
@@ -28,12 +30,31 @@
 </div>
 
 <nav>
-		<ul class="nav">
-			<li><a href="index.jsp">Home</a></li>
-			<li><a href="region.jsp">Demographics</a></li>
-			<li><a href="logout">Logout</a></li>
-		</ul>
-	</nav>
+	<ul class="nav">	
+		<li><a href="index.jsp">Home</a></li>
+		<%                        
+             if ((lg == null) || (lg.getLoginState() == false)) {
+         %>
+         <li><a href="register.jsp">Register</a></li>
+	     <li><a href="login.jsp">Login</a></li>
+         <%}else{ 
+         if ((lg.getAccess() == 1) || (lg.getAccess() == 0)){ %>
+         <li><a href="register_by_admin.jsp">Register Staff</a></li>
+         <li><a href="add_material.jsp">Add Material</a></li>  
+         <li><a href="/BicyclesInc/AddProduct">Add Product</a>  
+         <li><a href="/BicyclesInc/show_materials">Check Materials</a></li>
+         <li><a href="region.jsp">Demographics</a></li>
+	     <%}
+         else{%>
+         <li><a href="/BicyclesInc/profile/<%=lg.getUsername()%>">Profile</a></li>    
+	     <%}%>
+	     <li><a href="/BicyclesInc/show_stock_items">Online Shop</a></li>
+	     <li><a href="/BicyclesInc/logout">Logout</a></li>
+        <% } %>
+	
+	</ul>
+</nav>
+
 <div class="register">
 	<article>
             <h3>Register a new Staff Member</h3>

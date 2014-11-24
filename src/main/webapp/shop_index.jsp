@@ -11,10 +11,15 @@
 <link rel="stylesheet" type="text/css" href="shop-styles.css" />
 </head>
 <body>
+<header>
+		<h2>BicyclesInc - Online Shop</h2>
+	</header>
 	<div align="center">
 		<div class='cssmenu'>
 
 			<nav>
+			<ul class="nav">
+			<li><a href='index.jsp'>Home</a></li>
 				<%
 					LoginState lg = (LoginState) session.getAttribute("LoggedIn");
 					if (lg == null) {
@@ -22,8 +27,8 @@
 					} else {
 						if (lg.getAccess() == 0) {
 				%>
-				<li><a href="add_stock_item.jsp">Add new item on stock</a></li>
-				<li><a href="delete_stock_item.jsp">Delete item from stock</a></li>
+				<li><a href="add_stock_item.jsp">Add item</a></li>
+				<li><a href="delete_stock_item.jsp">Delete item</a></li>
 				<%
 					} else {
 				%>
@@ -31,23 +36,18 @@
 				<%
 					}
 				%>
-				<li class='active '><a href='search_products'><span>Home</span></a></li>
-				<li><a href='index.jsp'><span>BicyclesInc - Home</span></a></li>
+				<li class='active '><a href='/BicyclesInc/show_stock_items'><span>Shop Home</span></a></li>
+				
 				<%
 					}
 				%>
 
 				</ul>
-
-
-
-				<ul>
-
-				</ul>
+			</nav>
 		</div>
 	</div>
 	<div align="center">
-		<h1>View Products from Database</h1>
+		<h2>View Products from Database</h2>
 		<table width="700px" align="center" style="border: 1px solid #000000;">
 			<tr>
 				<td colspan=4 align="center" style="background-color: teal"><b>User

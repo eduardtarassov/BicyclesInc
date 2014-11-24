@@ -15,7 +15,7 @@
 	
 	
 	
-	<%             LoginState lg = (LoginState) session.getAttribute("LoggedIn");
+	<%LoginState lg = (LoginState) session.getAttribute("LoggedIn");
 	if (lg != null){
 	if (lg.getAccess() == 0){%>
 	<div class="search">
