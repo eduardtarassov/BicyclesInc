@@ -61,7 +61,7 @@ public class Profile extends HttpServlet {
         try {
             conn = dataSource.getConnection();
             us.setConnection(conn);
-            us.registerUser(strRequestParams, false);
+            us.registerUser(strRequestParams, false, false);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

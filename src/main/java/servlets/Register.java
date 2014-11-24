@@ -17,9 +17,10 @@ import javax.sql.DataSource;
 
 import models.UserModel;
 import utils.ConnectionUtil;
+import utils.Convertors;
 import utils.Validation;
 
-@WebServlet(name = "Register", urlPatterns = {"/register"})
+@WebServlet(name = "Register", urlPatterns = {"/register", "/register_staff"})
 public class Register extends HttpServlet {
 
     private static final String HOME_PAGE = "/index.jsp";
@@ -60,6 +61,10 @@ public class Register extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse
             response) throws ServletException, IOException {
     	System.out.println("This is my test!");
+    	
+    	String args[] = Convertors.SplitRequestPath(request);
+    	
+    	
         String[] strRequestParams = generateRequestParams(request);
         //registerValidation(strRequestParams, request, response); // ERROR
         UserModel us = new UserModel();
@@ -67,7 +72,13 @@ public class Register extends HttpServlet {
         try {
             conn = dataSource.getConnection();
             us.setConnection(conn);
-            us.registerUser(strRequestParams, true);
+            
+            if (args[1] == "register")
+            us.registerUser(strRequestParams, true, false);
+            else
+            	us.registerUser(strRequestParams, true, true);
+
+            
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

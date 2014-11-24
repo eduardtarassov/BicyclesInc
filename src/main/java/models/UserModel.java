@@ -26,7 +26,7 @@ public class UserModel {
 
 
     /* Registers user. Or updates existing user info*/
-    public boolean registerUser(String[] strRequestParams, boolean initial) throws SQLException {
+    public boolean registerUser(String[] strRequestParams, boolean initial, boolean staff) throws SQLException {
         PreparedStatement ps = null;
             try {
                 if (initial) {
@@ -44,8 +44,10 @@ public class UserModel {
                 
                 ps.setString(7, "user");
                 ps.setString(8, strRequestParams[6]);
-                
+                if (!staff)
                 ps.setInt(9, 2);
+                else
+                	ps.setInt(9, 1);
                 ps.setString(10, "You can search/purchase products.");
                 ps.setBoolean(11, false);
                 
@@ -55,14 +57,21 @@ public class UserModel {
 
                 System.out.println("This is your ps: " + ps.toString());
                 ps.executeUpdate();
-                
+                if (!staff){
                 ps = conn.prepareStatement("INSERT INTO customers" +
                         "(id, date_of_birth, company_affiliation) VALUES" +
                         "(?,?,?)");
                 ps.setString(1, strRequestParams[0]);
                 ps.setString(2, strRequestParams[7]);
                 ps.setString(3, strRequestParams[8]);
-                
+                }
+                else{
+                	ps = conn.prepareStatement("INSERT INTO staff" +
+                            "(id, department) VALUES" +
+                            "(?,?)");
+                    ps.setString(1, strRequestParams[0]);
+                    ps.setString(2, "production");
+                }
                 System.out.println("This is your ps: " + ps.toString());
                 ps.executeUpdate();
                 }else{

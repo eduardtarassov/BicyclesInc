@@ -38,7 +38,7 @@
 	<article>
             <h3>Register a new Staff Member</h3>
             <div class="register">
-            <form method="POST" action="register/staff">
+            <form method="POST" action="register_staff">
                 <ul>
                 <fieldset>
                     <li>User Name <input type="text" name="id"></li></br>

@@ -42,7 +42,7 @@
          <li><a href="register.jsp">Register</a></li>
 	     <li><a href="login.jsp">Login</a></li>
          <%}else{ 
-         if (lg.getAccess() == 0){ %>
+         if (lg.getAccess() <= 1){ %>
          <li><a href="register_by_admin.jsp">Register Staff</a></li>
          <li><a href="add_material.jsp">Add Material</a></li>  
          <li><a href="/BicyclesInc/AddProduct">Add Product</a>  
