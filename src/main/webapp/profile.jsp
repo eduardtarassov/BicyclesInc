@@ -74,9 +74,8 @@
 			<li><b>Company: </b><%=pInf.getCompany()%></li>
 			</br>
 			</h3>
-			<% if (lg.getUsername() == pInf.getUsername()){%>
 			<li><a href="/BicyclesInc/update_profile.jsp">Update profile</a>
-			<%} %>
+			
 		</ul>
 		</p>
 	</article>

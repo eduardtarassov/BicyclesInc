@@ -39,25 +39,26 @@
         <ul>
         <fieldset>
         	<input type="text" name="id" value="<%=lg.getUsername()%>" style="visibility:hidden">
-            <li>Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password"></li>
+            <li>Password: <input type="password" name="password"></li>
             <!--<li>Repeat Password <input type="password" name="password_repeat"></li>--><br/>
-            <li>First Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="first_name"></li><br/>
-            <li>Last Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="last_name"></li><br/>
-            <li>Email Address: &nbsp;&nbsp;<input type="email" name="email"></li><br/>
-            <li>Secret Question:<input type="text" name="secret_question"></li><br/>
-            <li>Secret Answer:&nbsp;&nbsp;&nbsp;<input type="text" name="secret_answer"></li><br/>
-       		<li>DOB (dd/mm/yyyy):&nbsp;&nbsp;<input type="date" name="date_of_birth"></li><br/>
-       		<li>Your company: &nbsp;&nbsp;<input type="text" name="company_affiliation"></li>	
+            <li>First Name: <input type="text" name="first_name"></li><br/>
+            <li>Last Name: <input type="text" name="last_name"></li><br/>
+            <li>Email Address: <input type="email" name="email"></li><br/>
+            <li>Secret Question: <input type="text" name="secret_question"></li><br/>
+            <li>Secret Answer: <input type="text" name="secret_answer"></li><br/>
+       		<li>DOB (dd/mm/yyyy): <input type="date" name="date_of_birth"></li><br/>
+       		<li>Your company: <input type="text" name="company_affiliation"></li>	
        		
        		</fieldset>
        		<input type="submit" value="Update">
+       		</form>
        		<form method="POST" action="/BicyclesInc/delete-users">
        			<input type="text" name="column" value="id" style="visibility:hidden">
        			<input type="text" name="value" value="<%=lg.getUsername()%>" style="visibility:hidden">
        			<input type="submit" value="Delete Profile">
    	</form>
         </ul>        
-    </form>
+    
     
 	
    	</div>

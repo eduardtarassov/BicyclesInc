@@ -55,8 +55,7 @@ public class Delete extends HttpServlet {
 
 		try {
 			conn = dataSource.getConnection();
-			dModel = new DeleteModel();
-System.out.println("lol");
+			dModel = new DeleteModel();			
 			dModel.setConnection(this.conn);
 			// displayProfile(username, request, response);
 		delete(table, strRequestParams, request, response);
@@ -75,6 +74,8 @@ System.out.println("lol");
 
 	private void delete(String table, String[] strRequestParams, HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException, SQLException {
+		HttpSession session = request.getSession();
+		session.invalidate();
 		System.out.println("Removing item from table: " + table);
 		System.out.println("Removing item from column: " + strRequestParams[0]);
 		System.out.println("Removing item with value: " + strRequestParams[1]);

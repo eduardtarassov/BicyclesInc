@@ -21,6 +21,7 @@ import utils.ConnectionUtil;
 import utils.Convertors;
 
 @WebServlet(urlPatterns = {
+        "/profile/*",
         "/UpdateProfileInformation/*"
 })
 @MultipartConfig
@@ -81,8 +82,31 @@ public class Profile extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    	HttpSession session = request.getSession();
+    	username = (String) session.getAttribute("username");
+        String args[] = Convertors.SplitRequestPath(request);
+        try {
+            conn = dataSource.getConnection();
+            pModel = new ProfileModel();
+            pModel.setConnection(this.conn);
+            //displayProfile(username, request, response);
+                    displayProfile(args[2], request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            ConnectionUtil.close(null, null, conn);
+        }
 
     }
 
+
+    private void displayProfile(String username, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("Display Profile information");
+        RequestDispatcher rd = null;
+        ProfileInfo proInfo = pModel.getProfileInfo(username);
+        rd = request.getRequestDispatcher("/profile.jsp");
+        request.setAttribute("ProfileInfo", proInfo);
+
+        rd.forward(request, response);
+    }
 }

@@ -12,11 +12,13 @@
 	<header>
 		<h2>BicyclesInc - Message</h2>
 	</header>
+	<article>
 	<%
 		String message = (String) request.getAttribute("message");
 	%>
 	<h1><%=message%></h1>
 	<h3>You will be redirected automatically just right now.</h3>
 	<meta http-equiv="Refresh" content="5;index.jsp">
+	</article>
 </body>
 </html>

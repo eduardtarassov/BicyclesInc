@@ -40,7 +40,24 @@ public class ProfileModel {
                 System.out.println("No user returned!");
                 return null;
             }
-       
+            ps = conn.prepareStatement("SELECT * FROM customers WHERE id='" + username + "'");
+            
+            
+            System.out.println("This is your prepared Statement: " + ps.toString());
+            rs = ps.executeQuery(); // this is where the query is executed
+            if (rs.next()) {
+                String company = rs.getString("company_affiliation");
+                String dob = rs.getString("date_of_birth");
+                System.out.println("User information retrieved successfully!");
+                
+                proInfo.setCompany(company);
+                proInfo.setDOB(dob);
+                
+ 
+            } else {
+                System.out.println("No user returned!");
+                return null;
+            }
 
 
         } catch (Exception e) {
