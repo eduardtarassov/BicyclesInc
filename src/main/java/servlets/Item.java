@@ -108,7 +108,7 @@ public class Item extends HttpServlet {
 		RequestDispatcher rd = null;
 		StockItem stockItem = stockModel.getStockItemInfo(id);
 		rd = request.getRequestDispatcher("/stock_item.jsp");
-		request.setAttribute("StockItem", stockItem);
+		request.setAttribute("StockItemInfo", stockItem);
 
 		rd.forward(request, response);
 	}

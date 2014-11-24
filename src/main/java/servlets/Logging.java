@@ -63,7 +63,8 @@ public class Logging extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher("message.jsp");
                 rd.forward(request, response);
             } else {
-                request.setAttribute("message", strErrMsg);
+            	String message = "Your logging details are incorrect!";
+                request.setAttribute("message", message);
                
                 RequestDispatcher rd = request.getRequestDispatcher("message.jsp");
                 rd.forward(request, response);

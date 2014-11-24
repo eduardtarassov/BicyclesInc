@@ -51,7 +51,7 @@ Description: <%=material.getDescription()%></br>
 Unit Price: <%=material.getUnit_price()%></br>
 Units: <%=material.getUnits()%></br>
 Amount: <%=material.getAmount()%></br>
-<a href="/BicyclesInc/update_material.jsp">Update your material information</a>
+
 
 </article>
 <footer>

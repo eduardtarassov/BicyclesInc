@@ -85,7 +85,8 @@
 				<td><%=item.getNumber_sold()%></td>
 				<td><%=item.getDiscount()%></td>
 				<td><%=item.getProduct_id()%></td>
-				<td><a href="stock_item.jsp">See More</a></td>
+				<td><a href="StockItem/<%=item.getProduct_id()%>">See More
+				</a></td>
 
 			</tr>
 			<%

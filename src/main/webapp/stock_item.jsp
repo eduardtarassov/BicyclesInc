@@ -34,7 +34,6 @@ Price: <%=stockItem.getPrice()%></br>
 Available number: <%=stockItem.getAvailable_number()%></br>
 Number Sold: <%=stockItem.getNumber_sold()%></br>
 Discount: <%=stockItem.getDiscount()%></br>
-<a href="/BicyclesInc/update_stock_item.jsp">Update your material information</a>
 
 </article>
 <footer>
