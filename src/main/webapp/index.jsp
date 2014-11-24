@@ -37,12 +37,12 @@
 	<ul class="nav">	
 		<li><a href="index.jsp">Home</a></li>
 		<%                        
-             if (lg == null) {
+             if ((lg == null) || (lg.getLoginState() == false)) {
          %>
          <li><a href="register.jsp">Register</a></li>
 	     <li><a href="login.jsp">Login</a></li>
          <%}else{ 
-         if (lg.getAccess() <= 1){ %>
+         if ((lg.getAccess() == 1) || (lg.getAccess() == 0)){ %>
          <li><a href="register_by_admin.jsp">Register Staff</a></li>
          <li><a href="add_material.jsp">Add Material</a></li>  
          <li><a href="/BicyclesInc/AddProduct">Add Product</a>  
@@ -52,8 +52,8 @@
          else{%>
          <li><a href="/BicyclesInc/profile/<%=lg.getUsername()%>">Profile</a></li>    
 	     <%}%>
-	     <li><a href="show_stock_items">Online Shop</a></li>
-	     <li><a href="logout">Logout</a></li>
+	     <li><a href="/BicyclesInc/show_stock_items">Online Shop</a></li>
+	     <li><a href="/BicyclesInc/logout">Logout</a></li>
         <% } %>
 	
 	</ul>

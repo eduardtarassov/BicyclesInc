@@ -79,14 +79,14 @@ public class Logging extends HttpServlet {
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-       /* HttpSession session = request.getSession();
-        LoginState lg = (LoginState) session.getAttribute("LoginState");
+        HttpSession session = request.getSession();
+        LoginState lg = (LoginState) session.getAttribute("LoggedIn");
         lg.setLoginState(false);
         lg.setUsername("visitor");
-        request.setAttribute("LoginState", lg);*/
+        request.setAttribute("LoggedIn", lg);
         String message = "You have successfully logged out! It was nice having you here.";
         request.setAttribute("message", message);
-       
+       System.out.println("TESTTING");
         RequestDispatcher rd = request.getRequestDispatcher("message.jsp");
         rd.forward(request, response);
     }
